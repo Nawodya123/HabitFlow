@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F4F5FB"
+    android:fitsSystemWindows="true">
+
+    <!-- Header -->
+    <RelativeLayout
+        android:id="@+id/headerForm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#6C63FF"
+        android:padding="24dp">
+
+        <TextView
+            android:id="@+id/tvFormTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-black"
+            android:text="Add Habit"
+            android:textColor="#FFFFFF"
+            android:textSize="32sp" />
+
+        <TextView
+            android:id="@+id/tvFormSubtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvFormTitle"
+            android:layout_marginTop="4dp"
+            android:fontFamily="sans-serif-light"
+            android:text="Fill in the details below"
+            android:textColor="#E0DEFF"
+            android:textSize="15sp" />
+    </RelativeLayout>
+
+    <!-- Bottom Save / Delete bar -->
+    <RelativeLayout
+        android:id="@+id/bottomBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="#FFFFFF"
+        android:elevation="8dp"
+        android:padding="12dp">
+
+        <Button
+            android:id="@+id/btnSave"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:backgroundTint="#6C63FF"
+            android:fontFamily="sans-serif-medium"
+            android:text="Save Habit"
+            android:textColor="#FFFFFF"
+            android:textSize="17sp"
+            app:cornerRadius="16dp" />
+
+        <Button
+            android:id="@+id/btnDelete"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_below="@id/btnSave"
+            android:layout_marginTop="8dp"
+            android:backgroundTint="#EF4444"
+            android:fontFamily="sans-serif-medium"
+            android:text="Delete Habit"
+            android:textColor="#FFFFFF"
+            android:textSize="17sp"
+            android:visibility="gone"
+            app:cornerRadius="16dp" />
+    </RelativeLayout>
+
+    <!-- Scrollable form -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/bottomBar"
+        android:layout_below="@id/headerForm"
+        android:clipToPadding="false"
+        android:padding="16dp"
+        android:scrollbars="none">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!-- Card 1: Basics -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardBasics"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="#FFFFFF"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="2dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:id="@+id/tvBasicsTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-medium"
+                        android:letterSpacing="0.15"
+                        android:text="BASICS"
+                        android:textColor="#6C63FF"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/tvNameLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tvBasicsTitle"
+                        android:layout_marginTop="12dp"
+                        android:fontFamily="sans-serif-medium"
+                        android:text="Habit name"
+                        android:textColor="#6B7280"
+                        android:textSize="14sp" />
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/cardName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tvNameLabel"
+                        android:layout_marginTop="6dp"
+                        app:cardBackgroundColor="#F9FAFB"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="0dp"
+                        app:strokeColor="#D1D5DB"
+                        app:strokeWidth="1dp">
+
+                        <EditText
+                            android:id="@+id/etName"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@null"
+                            android:fontFamily="sans-serif"
+                            android:hint="e.g. Drink Water"
+                            android:inputType="textCapSentences"
+                            android:padding="14dp"
+                            android:textColor="#1F2937"
+                            android:textColorHint="#9CA3AF"
+                            android:textSize="17sp" />
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <TextView
+                        android:id="@+id/tvCategoryLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/cardName"
+                        android:layout_marginTop="16dp"
+                        android:fontFamily="sans-serif-medium"
+                        android:text="Category"
+                        android:textColor="#6B7280"
+                        android:textSize="14sp" />
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/cardCategory"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tvCategoryLabel"
+                        android:layout_marginTop="6dp"
+                        app:cardBackgroundColor="#F9FAFB"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="0dp"
+                        app:strokeColor="#D1D5DB"
+                        app:strokeWidth="1dp">
+
+                        <Spinner
+                            android:id="@+id/spCategory"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="12dp" />
+                    </com.google.android.material.card.MaterialCardView>
+                </RelativeLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Card 2: Schedule -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardSchedule"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/cardBasics"
+                android:layout_marginTop="16dp"
+                app:cardBackgroundColor="#FFFFFF"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="2dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:id="@+id/tvScheduleTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-medium"
+                        android:letterSpacing="0.15"
+                        android:text="SCHEDULE &amp; GOAL"
+                        android:textColor="#6C63FF"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/tvFrequencyLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tvScheduleTitle"
+                        android:layout_marginTop="12dp"
+                        android:fontFamily="sans-serif-medium"
+                        android:text="Frequency"
+                        android:textColor="#6B7280"
+                        android:textSize="14sp" />
+
+                    <RadioGroup
+                        android:id="@+id/rgFrequency"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tvFrequencyLabel"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/rbDaily"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:buttonTint="#6C63FF"
+                            android:checked="true"
+                            android:fontFamily="sans-serif"
+                            android:text="Daily"
+                            android:textColor="#1F2937"
+                            android:textSize="16sp" />
+
+                        <RadioButton
+                            android:id="@+id/rbWeekly"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:buttonTint="#6C63FF"
+                            android:fontFamily="sans-serif"
+                            android:text="Weekly"
+                            android:textColor="#1F2937"
+                            android:textSize="16sp" />
+                    </RadioGroup>
+
+                    <TextView
+                        android:id="@+id/tvGoalLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/rgFrequency"
+                        android:layout_marginTop="16dp"
+                        android:fontFamily="sans-serif-medium"
+                        android:text="Goal (number of days)"
+                        android:textColor="#6B7280"
+                        android:textSize="14sp" />
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/cardGoal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tvGoalLabel"
+                        android:layout_marginTop="6dp"
+                        app:cardBackgroundColor="#F9FAFB"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="0dp"
+                        app:strokeColor="#D1D5DB"
+                        app:strokeWidth="1dp">
+
+                        <EditText
+                            android:id="@+id/etGoalDays"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@null"
+                            android:fontFamily="sans-serif"
+                            android:hint="e.g. 30"
+                            android:inputType="number"
+                            android:padding="14dp"
+                            android:textColor="#1F2937"
+                            android:textColorHint="#9CA3AF"
+                            android:textSize="17sp" />
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <TextView
+                        android:id="@+id/tvTarget"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/cardGoal"
+                        android:layout_marginTop="16dp"
+                        android:fontFamily="sans-serif-medium"
+                        android:text="Daily target: 1"
+                        android:textColor="#6B7280"
+                        android:textSize="14sp" />
+
+                    <SeekBar
+                        android:id="@+id/sbTarget"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tvTarget"
+                        android:layout_marginTop="4dp"
+                        android:max="20"
+                        android:progressTint="#6C63FF"
+                        android:thumbTint="#6C63FF" />
+                </RelativeLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Card 3: Reminder -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardReminder"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/cardSchedule"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="8dp"
+                app:cardBackgroundColor="#FFFFFF"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="2dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp">
+
+                    <CheckBox
+                        android:id="@+id/cbReminder"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="#6C63FF"
+                        android:fontFamily="sans-serif-medium"
+                        android:text="Enable reminder"
+                        android:textColor="#1F2937"
+                        android:textSize="17sp" />
+
+                    <TextView
+                        android:id="@+id/tvReminderHint"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/cbReminder"
+                        android:layout_marginStart="32dp"
+                        android:fontFamily="sans-serif-light"
+                        android:text="Get a nudge so you never miss a day"
+                        android:textColor="#6B7280"
+                        android:textSize="13sp" />
+                </RelativeLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>
